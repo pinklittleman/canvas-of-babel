@@ -4,58 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-
-
-function convertArrayToCSV(array) {
-  let csvContent = "data:text/csv;charset=utf-8,";
-
-  // Iterate over the array and format each row as comma-separated values
-  array.forEach((row) => {
-    csvContent += row.join(",") + "\n";
-  });
-
-  // Create a virtual link and set the CSV data as its href
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "data.csv");
-  document.body.appendChild(link);
-
-  // Simulate a click event to trigger the download
-  link.click();
-}
-
-function exportArrayToFile(array) {
-    const textContent = array.map(item => `"${item}"`).join(",\n");
-  
-    // Create a Blob object and assign it as the href attribute of the download link
-    const textBlob = new Blob([textContent], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.setAttribute("href", URL.createObjectURL(textBlob));
-    link.setAttribute("download", "data.txt");
-    document.body.appendChild(link);
-  
-    // Simulate a click event to trigger the download
-    link.click();
-}
-
-// Example usage
-const data = [
-  ["Name", "Age", "Country"],
-  ["John Doe", 25, "USA"],
-  ["Jane Smith", 30, "Canada"],
-  ["Bob Johnson", 35, "UK"],
-];
-
-convertArrayToCSV(data);
-
-
-
-
-
-    </script>
+    <script defer src="index.js"></script>
+    <canvas></canvas>
 </body>
 </html>
